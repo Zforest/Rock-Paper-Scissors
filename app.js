@@ -4,24 +4,21 @@
 Goals to complete Rock Paper Scissors
  1. Create computers Choice (Complete)
  2. Create players Choice (Complete)
- 3. Create a Single Round of R,P,S
+ 3. Create a Single Round of R,P,S (Complete)
  4. Create a 5 round game that keeps score
+    a. Create a loop to continue into 4 additional rounds
+    b. Keep score of each round
+    c. Determine the final score and announce the winner
 
-Sub-problem to resolve now
-Create a single round of R,P,S
-  1. Obtain computer's choice (Complete)
-  2. Obtain player's choice (Complete)
-     a. Make the selection case insensitive (Complete)
-  3. Compare the two choice's and declare a winner
-     a. Declare a tie if same choice is made (Complete)
 */
-
 //Generates random number for the computer choice
 //Prompts player to make a choice and stores the input
 //Converts any input to lowercase for consistency
 let computerChoice = Math.floor(Math.random() * (4 - 1) + 1);
 let promptPlayerChoice = prompt("Please enter Rock, Paper, or Scissors");
 playerChoice = promptPlayerChoice.toLowerCase();
+let playerScore = Number('');
+let computerScore = Number('');
 
 
 //Instructs the computer to make a decision based on random number
