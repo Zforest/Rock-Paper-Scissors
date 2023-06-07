@@ -2,15 +2,15 @@
 
 /*
 Goals to complete Rock Paper Scissors
- 1. Create Computers Choice (Complete)
- 2. Create Players Choice
+ 1. Create computers Choice (Complete)
+ 2. Create players Choice (Complete)
  3. Create a Single Round of R,P,S
  4. Create a 5 round game that keeps score
 
 Sub-problem to resolve now
 Create a single round of R,P,S
-  1. Determine Computer's choice
-  2. Determine Player's choice
+  1. Obtain computer's choice
+  2. Obtain player's choice
      a. Make the selection case insensitive
   3. Compare the two choice's and declare a winner
      a. Declare a tie if same choice is made
@@ -29,4 +29,13 @@ function getComputerChoice() {
         console.log('Computer plays scissors!')
     }
 }
-console.log(getComputerChoice());
+//Displays computer choice in console
+getComputerChoice();
+
+//Prompts player to make a choice and stores the input
+let playerChoice = prompt("Please enter Rock, Paper, or Scissors");
+
+//One Round of R,P,S (Compares computer vs. players and determines result)
+function roundOne() {
+
+}
