@@ -16,9 +16,9 @@ Goals to complete Rock Paper Scissors
 //Converts any input to lowercase for consistency
 let computerChoice = Math.floor(Math.random() * (4 - 1) + 1);
 let promptPlayerChoice = prompt("Please enter Rock, Paper, or Scissors");
-playerChoice = promptPlayerChoice.toLowerCase();
-let playerScore = Number('');
-let computerScore = Number('');
+let playerChoice = promptPlayerChoice.toLowerCase();
+let playerScore = 0;
+let computerScore = 0;
 
 
 //Instructs the computer to make a decision based on random number
@@ -33,28 +33,36 @@ function getComputerChoice() {
     }
 }
 
-//One round of r,p,s
-//Compares player's choice to computer's choice and determines a winner and loser or a tie
-function roundOne (playerSelection, computerSelection) {
-    if (playerChoice === 'rock' && computerChoice === 'paper') {
-        return (`You played ${playerChoice} and the Computer plays ${computerChoice}. You Lose! Paper beats rock.`);
-    } else if (playerChoice === 'paper' && computerChoice === 'rock') {
-        return (`You played ${playerChoice} and the Computer plays ${computerChoice}. You Win! Paper beats rock.`); 
-    } else if (playerChoice === 'scissors' && computerChoice === 'rock') {
-        return (`You played ${playerChoice} and the Computer plays ${computerChoice}. You Lose! Rock beats scissors.`);
-    } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
-        return (`You played ${playerChoice} and the Computer plays ${computerChoice}. You Win! Rock beats scissors.`);
-    } else if (playerChoice === 'paper' && computerChoice === 'scissors') {
-        return (`You played ${playerChoice} and the Computer plays ${computerChoice}. You Lose! Scissors beats paper.`);
-    } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
-        return (`You played ${playerChoice} and the Computer plays ${computerChoice}. You Win! Scissors beats paper.`);
-    } else if (playerChoice === computerChoice) {
-        return (`You played ${playerChoice} and the Computer plays ${computerChoice}. It\'s a tie! you both played ${playerChoice}.`);
-    } else {
-        return ('Incorrect entry. Please type rock, paper, or scissors');
+while (playerScore <= 5) {
+    function gameRound (playerSelection, computerSelection) {
+        if (playerChoice === 'rock' && computerChoice === 'paper') {
+            computerScore++;
+            return (`You played ${playerChoice} and the Computer plays ${computerChoice}. You Lose! Paper beats rock.`);
+        } else if (playerChoice === 'paper' && computerChoice === 'rock') {
+            playerScore++;
+            return (`You played ${playerChoice} and the Computer plays ${computerChoice}. You Win! Paper beats rock.`); 
+        } else if (playerChoice === 'scissors' && computerChoice === 'rock') {
+            computerScore++;
+            return (`You played ${playerChoice} and the Computer plays ${computerChoice}. You Lose! Rock beats scissors.`);
+        } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
+            // Do this to all of them!
+            return {
+            playerScore = playerScore + 1,
+            (`You played ${playerChoice} and the Computer plays ${computerChoice}. You Win! Rock beats scissors.`);
+            }; 
+        } else if (playerChoice === 'paper' && computerChoice === 'scissors') {
+            computerScore++;
+            return (`You played ${playerChoice} and the Computer plays ${computerChoice}. You Lose! Scissors beats paper.`);
+        } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+            playerScore++;
+            return (`You played ${playerChoice} and the Computer plays ${computerChoice}. You Win! Scissors beats paper.`);
+        } else if (playerChoice === computerChoice) {
+            return (`You played ${playerChoice} and the Computer plays ${computerChoice}. It\'s a tie! you both played ${playerChoice}.`);
+        } else {
+            return ('Incorrect entry. Please type rock, paper, or scissors');
+        }
     }
 }
-
 const playerSelection = playerChoice;
 const computerSelection = getComputerChoice();
-console.log(roundOne(playerSelection, computerSelection));
+console.log(gameRound(playerSelection, computerSelection));
